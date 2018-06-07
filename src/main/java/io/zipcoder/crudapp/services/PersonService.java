@@ -1,5 +1,7 @@
-package io.zipcoder.crudapp;
+package io.zipcoder.crudapp.services;
 
+import io.zipcoder.crudapp.Person;
+import io.zipcoder.crudapp.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +29,7 @@ public class PersonService {
     }
 
     public Person updatePerson(Person p) {
-        Person found = personRepository.findOne(p.getId());
-
-        return (found != null) ? personRepository.save(p) : null;
+        return personRepository.save(p);
     }
 
     public void deletePerson(Long id) {
